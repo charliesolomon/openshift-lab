@@ -50,24 +50,22 @@ _OpenShift 3 virtual lab_
 8. Ping Google to verify internet access (ping www.google.com)
 9. Prepare the server for the OpenShift install (Ref: ![Prerequisites](https://docs.openshift.com/enterprise/latest/install_config/install/prerequisites.html))
   - Registering the host
-    - '''# subscription-manager register --username=<user_name> --password=<password>'''
-    - '''# subscription-manager list --available'''
+  - subscription-manager register --username=<user_name> --password=<password>
+  - subscription-manager list --available
     - (in the output of the previous command, find the pool ID for an OpenShift Enterprise subscription and attach it):
-    - '''# subscription-manager attach --pool=<pool_id>'''
-    - Disable all repositories and enable only the required ones:
+  - subscription-manager attach --pool=<pool_id>
+  - Disable all repositories and enable only the required ones:
+  - subscription-manager repos --disable="*"
+  - subscription-manager repos --enable="rhel-7-server-rpms"
+  - subscription-manager repos --enable="rhel-7-server-extras-rpms"
+  - subscription-manager repos --enable="rhel-7-server-ose-3.0-rpms"
+  - install packages:
+  - yum install wget git net-tools bind-utils iptables-services bridge-utils bash-completion
+  - install packages needed for "quick install" script:
+  - yum install gcc python-virtualenv
+  - update packages:
+  - yum update
+  - Install Docker
+  - yum install docker
 
-'''# subscription-manager repos --disable="*"
-# subscription-manager repos \
-    --enable="rhel-7-server-rpms" \
-    --enable="rhel-7-server-extras-rpms" \
-    --enable="rhel-7-server-ose-3.0-rpms"
-'''
-
-    - install packages:
-    - '''yum install wget git net-tools bind-utils iptables-services bridge-utils bash-completion'''
-    - install packages needed for "quick install" script:
-    - '''yum install gcc python-virtualenv'''
-    - update packages:
-    - '''yum update'''
-    - Install Docker
-    - '''yum install docker'''
+Remember to systemctl start docker (before installing openshift)
