@@ -40,7 +40,7 @@ _OpenShift 3 virtual lab_
   - Set up the root password and a user account
   - Finish the install, and reboot
   - ![Base VM First Boot](images/base-min-first-boot.png)
-5. Add user "charlie" to the sudoers group (![Ref](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Getting_Started_Guide/ch02s03.html))
+5. Add user "charlie" to the sudoers group (Ref: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Getting_Started_Guide/ch02s03.html)
 6. Configure both network interfaces to always be ON after boot (eth0 should be configured properly already, but you will need to edit eth1's configuration file):
   - sudo vi /etc/sysconfig/network-scripts/ifcfg-eth1
   - Change "DEFROUTE" to "no" for eth1
@@ -50,7 +50,7 @@ _OpenShift 3 virtual lab_
 7. Add entries to the /etc/hostnames file for this base server, and for two additional servers (which we will clone from this base machine)
   - ![Base VM hostnames](images/base-min-hostnames.png)
 8. Ping Google to verify internet access (ping www.google.com)
-9. Prepare the server for the OpenShift install (Ref: ![Prerequisites](https://docs.openshift.com/enterprise/latest/install_config/install/prerequisites.html))
+9. Prepare the server for the OpenShift install (Ref: https://docs.openshift.com/enterprise/latest/install_config/install/prerequisites.html)
   - Registering the host
   - subscription-manager register --username=<user_name> --password=<password>
   - subscription-manager list --available
