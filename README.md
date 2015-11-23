@@ -43,7 +43,9 @@ _OpenShift 3 virtual lab_
 5. Add user "charlie" to the sudoers group (![Ref](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Getting_Started_Guide/ch02s03.html))
 6. Configure both network interfaces to always be ON after boot (eth0 should be configured properly already, but you will need to edit eth1's configuration file):
   - sudo vi /etc/sysconfig/network-scripts/ifcfg-eth1
-  - Change "ONBOOT" to "yes" (then restart your VM or "sudo ifup eth1")
+  - Change "DEFROUTE" to "no" for eth1
+  - Change "ONBOOT" to "yes" for eth1
+  - Restart your VM or "sudo ifup eth1"
   - ![Base VM eth1 configuration](images/base-min-eth0-config.png)
 7. Add entries to the /etc/hostnames file for this base server, and for two additional servers (which we will clone from this base machine)
   - ![Base VM hostnames](images/base-min-hostnames.png)
