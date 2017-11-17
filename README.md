@@ -1,3 +1,5 @@
+### Note: this repository is not actively maintained, treat accordingly!
+
 # openshift-lab
 _OpenShift 3 virtual lab_
 
